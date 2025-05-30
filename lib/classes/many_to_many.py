@@ -12,6 +12,10 @@ class Author:
             raise ValueError("Name must be a non-empty string.")
         self.name = name
 
+    @property
+    def name(self):
+        return self._name
+  
     def articles(self):
         pass
 
@@ -23,11 +27,30 @@ class Author:
 
     def topic_areas(self):
         pass
-
+    
 class Magazine:
     def __init__(self, name, category):
         self.name = name
         self.category = category
+
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str) or not (2 <= leng(value) <= 16):
+            raise ValueError("Name must be a string between 2 and 16 characters.")
+        self._name = value
+
+    @property
+    def category(self):
+        return self._category
+    @category.setter
+    def category(self, value):
+        if not isinstance(value, str) or len(value.stri()) == 0:
+            raise ValueError("Category must be a non-empty string.")
+        self._category = value
 
     def articles(self):
         pass
