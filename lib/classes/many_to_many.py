@@ -8,6 +8,8 @@ class Article:
         
 class Author:
     def __init__(self, name):
+        if not isinstance(name, str) or len(name.strip()) == 0:
+            raise ValueError("Name must be a non-empty string.")
         self.name = name
 
     def articles(self):
